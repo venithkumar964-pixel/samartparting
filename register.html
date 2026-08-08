@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SmartPark | Register</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="auth-page auth-register-page">
+    <header class="auth-header">
+      <div class="container auth-nav">
+        <a href="index.html" class="brand">SmartPark</a>
+        <nav class="auth-links">
+          <a href="index.html">Home</a>
+          <a href="login.html">Login</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container auth-grid">
+      <section class="auth-panel">
+        <div class="auth-card">
+          <span class="eyebrow">Smart Parking Registration</span>
+          <h1>Create Your Account</h1>
+          <form id="registerForm" novalidate>
+            <div class="form-group">
+              <label for="fullName">Full Name</label>
+              <input type="text" id="fullName" name="fullName" placeholder="John Doe" required />
+              <p class="field-error" id="fullNameError"></p>
+            </div>
+            <div class="form-group">
+              <label for="registerEmail">Email</label>
+              <input type="email" id="registerEmail" name="email" placeholder="you@example.com" required />
+              <p class="field-error" id="registerEmailError"></p>
+            </div>
+            <div class="form-group">
+              <label for="phoneNumber">Phone Number</label>
+              <input type="tel" id="phoneNumber" name="phone" placeholder="+1 555 123 4567" required />
+              <p class="field-error" id="phoneNumberError"></p>
+            </div>
+            <div class="form-row split-row">
+              <div class="form-group">
+                <label for="registerPassword">Password</label>
+                <div class="password-input-group">
+                  <input type="password" id="registerPassword" name="password" placeholder="Create a password" required />
+                  <button type="button" class="password-toggle" data-target="registerPassword">Show</button>
+                </div>
+                <p class="field-error" id="registerPasswordError"></p>
+              </div>
+              <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm password" required />
+                <p class="field-error" id="confirmPasswordError"></p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="vehicleNumber">Vehicle Number</label>
+              <input type="text" id="vehicleNumber" name="vehicleNumber" placeholder="ABC-1234" required />
+              <p class="field-error" id="vehicleNumberError"></p>
+            </div>
+            <div class="form-group">
+              <label for="vehicleType">Vehicle Type</label>
+              <select id="vehicleType" name="vehicleType" required>
+                <option value="">Select vehicle type</option>
+                <option value="car">Car</option>
+                <option value="bike">Bike</option>
+                <option value="ev">EV</option>
+              </select>
+              <p class="field-error" id="vehicleTypeError"></p>
+            </div>
+            <label class="checkbox-label check-terms">
+              <input type="checkbox" id="termsCheckbox" required />
+              I agree to the Terms & Conditions
+            </label>
+            <p class="field-error" id="termsError"></p>
+            <button class="button button-primary form-submit">Create Account</button>
+          </form>
+          <p class="form-note">Already have an account? <a href="login.html">Login</a></p>
+        </div>
+      </section>
+      <section class="auth-illustration">
+        <img src="images/parking-illustration.png" alt="Parking illustration" />
+      </section>
+    </main>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
