@@ -72,11 +72,16 @@ export default function LoginPage() {
         }),
       });
 
-      const data = await response.json();
+      let data = {};
+      try {
+        data = await response.json();
+      } catch {
+        data = {};
+      }
 
       if (!response.ok) {
         setServerMessage({
-          text: data.error || 'Unable to log in.',
+          text: data.error || `Server error (${response.status}). Please try again.`,
           type: 'error',
         });
         return;
@@ -93,8 +98,12 @@ export default function LoginPage() {
         navigate('/');
       }, 800);
     } catch (err) {
+      const errorMessage =
+        err.name === 'TypeError' || err.message === 'Failed to fetch'
+          ? 'Unable to connect to the backend server. Please ensure the backend server is running.'
+          : err.message || 'Login failed.';
       setServerMessage({
-        text: err.message || 'Login failed.',
+        text: errorMessage,
         type: 'error',
       });
     } finally {

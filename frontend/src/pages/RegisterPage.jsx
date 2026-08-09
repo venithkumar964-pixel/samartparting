@@ -105,11 +105,16 @@ export default function RegisterPage() {
         }),
       });
 
-      const data = await response.json();
+      let data = {};
+      try {
+        data = await response.json();
+      } catch {
+        data = {};
+      }
 
       if (!response.ok) {
         setServerMessage({
-          text: data.error || 'Registration failed.',
+          text: data.error || `Server error (${response.status}). Please try again.`,
           type: 'error',
         });
         return;
@@ -131,8 +136,12 @@ export default function RegisterPage() {
         terms: false,
       });
     } catch (err) {
+      const errorMessage =
+        err.name === 'TypeError' || err.message === 'Failed to fetch'
+          ? 'Unable to connect to the backend server. Please ensure the backend server is running.'
+          : err.message || 'Registration failed.';
       setServerMessage({
-        text: err.message || 'Registration failed.',
+        text: errorMessage,
         type: 'error',
       });
     } finally {
