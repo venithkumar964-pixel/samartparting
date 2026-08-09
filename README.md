@@ -1,6 +1,26 @@
 # Smart Parking & Slot Booking Platform
 
-A simple web-based parking system that helps users find and book available parking slots.
+A web-based parking system that helps users find and book available parking slots, built with a React (Vite) frontend and a Flask (Python) API.
+
+## Setup
+
+### Backend (Flask)
+
+```sh
+cd backend
+python -m venv .venv
+.venv\Scripts\activate     # Windows
+pip install -r requirements.txt
+python app.py              # runs on http://localhost:5000
+```
+
+### Frontend (React)
+
+```sh
+cd frontend
+npm install
+npm run dev
+```
 
 ## Features
 
@@ -12,6 +32,8 @@ A simple web-based parking system that helps users find and book available parki
 
 ## Technologies Used
 
+* React (Vite)
+* Flask (Python)
 * HTML
 * CSS
 * JavaScript
@@ -19,30 +41,32 @@ A simple web-based parking system that helps users find and book available parki
 ## Project Structure
 
 ```text
-Smart-Parking/
+smart-parking/
 │
-├── index.html          # Home page
-├── login.html          # Login page
-├── register.html       # Registration page
+├── backend/
+│   ├── app.py             # Flask API
+│   └── requirements.txt   # Python dependencies
 │
-├── css/
-│   └── style.css       # Website styling
+├── frontend/
+│   ├── index.html
+│   └── src/
+│       ├── components/    # Reusable components
+│       ├── pages/         # Home, Login, Register pages
+│       ├── App.jsx
+│       └── main.jsx
 │
-├── js/
-│   └── script.js       # JavaScript functionality
+├── database/
+│   └── schema.sql         # Database schema
 │
-├── images/
-│   └── parking.png     # Parking images
-│
-└── README.md           # Project documentation
+└── README.md              # Project documentation
 ```
 
 ## How to Run
 
-1. Download or clone the project.
-2. Open the project in VS Code.
-3. Open `index.html` in a browser.
-4. Use **Login** or **Register** to navigate between pages.
+1. Clone the project.
+2. Set up and start the Flask backend (see Setup).
+3. Set up and start the React frontend (see Setup).
+4. Open the frontend URL in a browser.
 
 ## Project Flow
 
